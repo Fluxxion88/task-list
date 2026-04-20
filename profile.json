@@ -1,0 +1,19 @@
+{
+    "sections": [
+        {
+            "name": "NeetCode",
+            "tasks": [
+                {
+                    "name": "twosum",
+                    "time": 0,
+                    "Status": "not started"
+                },
+                {
+                    "name": "valid anagram",
+                    "time": 0,
+                    "Status": "not started"
+                }
+            ]
+        }
+    ]
+}
