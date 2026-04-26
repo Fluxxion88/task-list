@@ -4,15 +4,11 @@
             "tasks": {
                 "twosum": {
                     "time": 0,
-                    "status": "not started"
+                    "status": "done"
                 },
                 "valid anagram": {
-                    "time": 0,
+                    "time": 5.099565029144287,
                     "status": "not started"
-                },
-                "fooof": {
-                    "time": 0,
-                    "status": "Not Started"
                 }
             }
         },
@@ -25,18 +21,6 @@
                 "valid anagram": {
                     "time": 0,
                     "status": "not started"
-                }
-            }
-        },
-        "jopa": {
-            "tasks": {
-                "goggle": {
-                    "time": 17.308541536331177,
-                    "status": "done"
-                },
-                "penis": {
-                    "time": 0,
-                    "status": "Not Started"
                 }
             }
         }

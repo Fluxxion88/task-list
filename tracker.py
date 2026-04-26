@@ -15,7 +15,7 @@ def add_razdel(som):
     with open("profile.json", "w", encoding='utf-8') as file:
         json.dump(data, file, ensure_ascii=False, indent=4)
 
-        print("Новый раздел добавлен!! ")
+        print("New section added!! ")
 
 def list_razdel():
     for count, name in enumerate(data["sections"], 1):
@@ -32,7 +32,7 @@ def list_tasks(razdel_name):
 
 def stop():
     os.system('clear')
-    print("До скорой встречи!")
+    print("See you soon!")
 
 def save_data():
     with open("profile.json", "w", encoding='utf-8') as file:
@@ -46,10 +46,10 @@ def get_captcha():
 
 while True:
     os.system('clear')
-    print("---Выбери раздел---")
+    print("---Select a section---")
     list_razdel()
 
-    razdel = input("Введите название раздела: ")
+    razdel = input("Enter the section title.: ")
 
     if razdel in ["stop", "Stop", "ыещз"]:
         stop()
@@ -57,9 +57,9 @@ while True:
 
     elif razdel == "add":
         os.system('clear')
-        print("---Выбери раздел---")
+        print("---Select a section---")
         list_razdel()
-        name = input("Название нового раздела: ")
+        name = input("Name of the New Section: ")
         if name in ["stop", "Stop", "ыещз"]:
             stop()
             break
@@ -67,24 +67,24 @@ while True:
     
     elif razdel in ["del", "delete"]:
         os.system('clear')
-        print("---Выбери раздел---")
+        print("---Select a section---")
         list_razdel()
-        name = input("Название удаляемого раздела: ")
+        name = input("Name of the section to be deleted: ")
 
         if name in data["sections"]:
             os.system('clear')
-            print("---Выбери раздел---")
+            print("---Select a section---")
             list_razdel()
-            shure = input("Вы уверены что хотите удалить целый раздел? (y/n): ")
+            shure = input("Are you sure you want to delete an entire section? (y/n): ")
             if shure == "n":
                 continue
             elif shure == "y":
                 captcha = get_captcha()
                 os.system('clear')
-                print("---Выбери раздел---")
+                print("---Select a section---")
                 list_razdel()
-                print(f"каптча - {captcha}")
-                gg_razdelu = input("Введить каптчу для подтверждения - ")
+                print(f"CAPTCHA - {captcha}")
+                gg_razdelu = input("Enter the CAPTCHA to confirm. - ")
                 if gg_razdelu == captcha:
                     del data["sections"][name]
 
@@ -94,10 +94,10 @@ while True:
 
         while True:
             os.system('clear')
-            print(f"--- Задачи Раздела {razdel} ---")
+            print(f"--- Section Objectives {razdel} ---")
             list_tasks(razdel)
                                                          
-            gomer = input("Выберете задачу: ")           
+            gomer = input("Select a task: ")           
 
             if gomer in ["stop", "Stop", "ыещз", "back", "назад"]:
                 stop()
@@ -105,22 +105,22 @@ while True:
 
             elif gomer == "add":
                 os.system('clear')
-                print(f"--- Задачи Раздела {razdel} ---")
+                print(f"--- Section Objectives {razdel} ---")
                 list_tasks(razdel)
-                new_task_name = input("Введить название нового задания: ")
+                new_task_name = input("Enter the name of the new task.: ")
                 data["sections"][razdel]["tasks"][new_task_name] = {
                     "time": 0,
                     "status": "Not Started"
                 }
 
                 save_data()
-                print(f"Новый раздел {new_task_name} добавлен!! ")
+                print(f"New Section {new_task_name} added!! ")
 
             elif gomer in ["del", "delete"]:
                 os.system('clear')
-                print(f"--- Задачи Раздела {razdel} ---")
+                print(f"--- Section Objectives {razdel} ---")
                 list_tasks(razdel)
-                task_to_delete = input("Введите название удаляемого задания: ")
+                task_to_delete = input("Enter the name of the task to be deleted: ")
                 
                 if task_to_delete in data["sections"][razdel]["tasks"]:
                     del data["sections"][razdel]["tasks"][task_to_delete]
@@ -131,7 +131,7 @@ while True:
                 try:
                     while True:
                         os.system('clear')
-                        print(f"--- Задачи Раздела {razdel} ---")
+                        print(f"--- Section Objectives {razdel} ---")
                         cureent_session = time.time() - start_time
                         total_time = data["sections"][razdel]["tasks"][gomer]["time"] + cureent_session
                         formated_time = time.strftime('%H:%M:%S', time.gmtime(total_time))
@@ -144,19 +144,19 @@ while True:
                                 print(f"{count}. {name} ✓")
                             else:
                                 print(f"{count}. {name}")
-                        print("Для остановки нажмите Ctrl + C")
+                        print("Press Ctrl + C to stop.")
                         time.sleep(1)
                 
                 except KeyboardInterrupt:
                     data["sections"][razdel]["tasks"][gomer]["time"] += cureent_session
                     save_data()
-                    print("Остановлено")
+                    print("Stopped")
 
             elif gomer == "done" or gomer == "fin":
                 os.system('clear')
-                print(f"--- Задачи Раздела {razdel} ---")
+                print(f"--- Section Objectives {razdel} ---")
                 list_tasks(razdel)
-                task_to_done = input("Выберите задание: ")
+                task_to_done = input("Select a task: ")
                 if task_to_done in data["sections"][razdel]["tasks"]:
                     data["sections"][razdel]["tasks"][task_to_done]["status"] = "done"
                     save_data()
