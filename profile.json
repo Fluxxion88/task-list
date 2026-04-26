@@ -1,23 +1,44 @@
 {
-    "sections": [
-        {
-            "name": "NeetCode",
-            "tasks": [
-                {
-                    "name": "twosum",
+    "sections": {
+        "NeetCode": {
+            "tasks": {
+                "twosum": {
                     "time": 0,
-                    "Status": "not started"
+                    "status": "not started"
                 },
-                {
-                    "name": "valid anagram",
+                "valid anagram": {
                     "time": 0,
-                    "Status": "not started"
+                    "status": "not started"
+                },
+                "fooof": {
+                    "time": 0,
+                    "status": "Not Started"
                 }
-            ]
+            }
         },
-        {
-            "name": "taksaaa",
-            "tasks": []
+        "someother": {
+            "tasks": {
+                "twosum": {
+                    "time": 0,
+                    "status": "not started"
+                },
+                "valid anagram": {
+                    "time": 0,
+                    "status": "not started"
+                }
+            }
+        },
+        "jopa": {
+            "tasks": {
+                "goggle": {
+                    "time": 17.308541536331177,
+                    "status": "done"
+                },
+                "penis": {
+                    "time": 0,
+                    "status": "Not Started"
+                }
+            }
         }
-    ]
+    }
 }
