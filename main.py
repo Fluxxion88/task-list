@@ -12,7 +12,7 @@ while True:
         action.stop()
         break
     
-    elif section == "add":
+    elif section == constants.ADD_COMMANDS:
         ui.list_menu(data)
         name = input("Name of the New Section: ")
         if name in constants.STOP_COMMANDS:
@@ -22,7 +22,7 @@ while True:
             storage.add_section(data, name)
             storage.save_data(data)
     
-    elif section == "del":
+    elif section == constants.DEL_COMMANDS:
         ui.list_menu(data)
         name = input("Name of the section to be deleted: ")
         if name in constants.STOP_COMMANDS:
@@ -46,16 +46,21 @@ while True:
                         continue
     elif section in data["sections"]:
          while True:
+              
               ui.list_tasks_menu(data, section)
               command = input("Select a task: ")
               if command in constants.STOP_COMMANDS:
                    action.stop()
                    break
-              elif command == "add":
+              elif command == constants.ADD_COMMANDS:
                    ui.list_tasks_menu(data, section)
                    new_task_name = input("Enter the name of the new task.: ")
                    if new_task_name in constants.STOP_COMMANDS:
                         action.stop()
                         break
                    else:
+                        storage.add_task(data, section, new_task_name)
+                        storage.save_data()
+              elif command in data["sections"][section]["tasks"]:
+                   
                         
