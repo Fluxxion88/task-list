@@ -7,7 +7,7 @@
                     "status": "done"
                 },
                 "valid anagram": {
-                    "time": 5.099565029144287,
+                    "time": 28.542598009109497,
                     "status": "not started"
                 }
             }
@@ -23,6 +23,12 @@
                     "status": "not started"
                 }
             }
+        },
+        "jopa": {
+            "tasks": {}
+        },
+        "kuki": {
+            "tasks": {}
         }
     }
 }
