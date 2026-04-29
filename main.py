@@ -1,24 +1,21 @@
 import storage
 import ui
 import action
-
-
-STATUS_NOT_STARTED = "not started"
-STATUS_DONE = "done"
+import constants
 
 while True:
     data = storage.load_data()
     ui.list_menu(data)
     section = input("Enter the section title: ")
     
-    if section in ["stop", "Stop"]:
+    if section in constants.STOP_COMMANDS:
         action.stop()
         break
     
     elif section == "add":
         ui.list_menu(data)
         name = input("Name of the New Section: ")
-        if name in ["stop", "Stop"]:
+        if name in constants.STOP_COMMANDS:
             action.stop()
             continue
         else:
@@ -28,7 +25,7 @@ while True:
     elif section == "del":
         ui.list_menu(data)
         name = input("Name of the section to be deleted: ")
-        if name in ["stop", "Stop"]:
+        if name in constants.STOP_COMMANDS:
             action.stop()
             continue
         elif name in data["sections"]:
@@ -49,4 +46,16 @@ while True:
                         continue
     elif section in data["sections"]:
          while True:
-              ui.list
+              ui.list_tasks_menu(data, section)
+              command = input("Select a task: ")
+              if command in constants.STOP_COMMANDS:
+                   action.stop()
+                   break
+              elif command == "add":
+                   ui.list_tasks_menu(data, section)
+                   new_task_name = input("Enter the name of the new task.: ")
+                   if new_task_name in constants.STOP_COMMANDS:
+                        action.stop()
+                        break
+                   else:
+                        
