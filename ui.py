@@ -24,3 +24,18 @@ def list_tasks_menu(data, section):
     print(f"--- Section Objectives {section} ---")
     list_tasks(data, section)
 
+# в ui.py
+def show_timer(data, section, current_task, formatted_time):
+    os.system('clear')
+    print(f"--- Section Objectives {section} ---")
+    
+    for count, name in enumerate(data["sections"][section]["tasks"], 1):
+        task_status = data["sections"][section]["tasks"][name]["status"]
+        if name == current_task:
+            print(f"{count}. {name} - {formatted_time}")
+        elif task_status == STATUS_DONE:
+            print(f"{count}. {name} ✓")
+        else:
+            print(f"{count}. {name}")
+    print("Press Ctrl + C to stop.")
+

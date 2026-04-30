@@ -3,3 +3,4 @@ STATUS_DONE = "done"
 STOP_COMMANDS = {"stop", "Stop", "back"}
 ADD_COMMANDS = {"add"}
 DEL_COMMANDS = {"del"}
+DONE_COMMANDS = {"done", "fin"}
